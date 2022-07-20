@@ -32,7 +32,7 @@ In the publish folder, edit the `appsettings.json` file and supply your own valu
 
 * You can enable the NameCheap API and get a key on their [website](https://www.namecheap.com/support/api/intro/).
 * *UserName* and *ApiUserName* are usually the same value, and it is usually the user name you use to sign in to NameCheap.
-* *ClientIP* is a whitelisted IP address allowed to connect to the API. These whitelisted addresses can be added to NameCheap when/where you enable the API. **Note:** API calls will check your current WAN IP with the one you provide i nthe settings. So they need to match.
+* *ClientIP* is a whitelisted IP address allowed to connect to the API. These whitelisted addresses can be added to NameCheap when/where you enable the API on their website. **Note:** API calls will check your current WAN IP with the one you provide in the settings. So they need to match.
 
 Once the `appsettings.json` file is modified, put the contents of the publish folder on your server and you should be able to use the executable with *win-acme* or any other tool by calling it with a fully qualified path.
 
