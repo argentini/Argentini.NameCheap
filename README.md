@@ -52,6 +52,18 @@ Argentini.NameCheap.exe create example.com my.api mykey=yaddayadda
 Argentini.NameCheap.exe create example.com my.txt "val1=yadda; val2=yadda"
 ```
 
+So in `win-acme` you would set your create script arguments to this:
+
+```
+create {ZoneName} {NodeName} {Token}
+```
+
+Likewise, your delete script arguments would be:
+
+```
+delete {ZoneName} {NodeName} {Token}
+```
+
 ### macOS and Linux
 
 The tool can be used on Linux or macOS as well. If the published executable doesn't run on macOS you may need to manually sign the published application using something like this:
