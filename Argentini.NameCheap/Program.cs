@@ -105,9 +105,9 @@ internal class Program
 
         foreach (var record in records)
         {
-            cl.Append($"&HostName{index}={record.HostName}");
+            cl.Append($"&HostName{index}={record.HostName.Replace(" ", "%20").Replace("+", "%2B")}");
             cl.Append($"&RecordType{index}={record.RecordType}");
-            cl.Append($"&Address{index}={record.Address}");
+            cl.Append($"&Address{index}={record.Address.Replace(" ", "%20").Replace("+", "%2B")}");
             cl.Append($"&MXPref{index}={record.MxPref}");
             cl.Append($"&TTL{index}={record.Ttl}");
 
