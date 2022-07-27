@@ -4,7 +4,7 @@ This .NET 6 project builds a command line interface (CLI) application that can a
 
 It was originally built to allow for creating wildcard TLS certificates using *win-acme* (Let's Encrypt) on an IIS server. Creating wildcard certificates with *win-acme* requires DNS host validation. This application can be used with the *win-acme* script feature to allow it to communicate with the NameCheap API and create/delete TXT records that will validate domain ownership.
 
-**This tool does not support the complete NameCheap API.** But it does handle the challenging task of adding and removing text records. Why is this challenging? Because the NameCheap API does not have functions to add or remove individual records. So the entire set of records must be downloaded, modified, and sent back.
+**This tool does not support the complete NameCheap API.** But it does handle the challenging task of adding and removing text records. Why is this challenging? The NameCheap API does not have functions to add or remove individual records, so the entire set of records must be downloaded, modified, and sent back.
 
 ## How to Install
 
