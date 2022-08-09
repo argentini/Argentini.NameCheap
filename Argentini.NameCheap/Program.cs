@@ -10,7 +10,7 @@ using System.Xml;
 using System.Xml.Serialization;
 using Microsoft.Extensions.Configuration;
 
-namespace Argentini.NameCheap;
+namespace NameCheap;
 
 internal class Program
 {

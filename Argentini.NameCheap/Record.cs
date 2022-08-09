@@ -1,4 +1,4 @@
-namespace Argentini.NameCheap;
+namespace NameCheap;
 
 public class Record
 {

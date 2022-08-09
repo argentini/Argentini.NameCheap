@@ -1,6 +1,6 @@
 using System.Xml.Serialization;
 
-namespace Argentini.NameCheap;
+namespace NameCheap;
 
 [XmlRoot("host", Namespace = "http://api.namecheap.com/xml.response")]
 public class Host
