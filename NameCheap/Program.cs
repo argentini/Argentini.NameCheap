@@ -14,7 +14,7 @@ namespace NameCheap;
 
 internal class Program
 {
-    private static readonly HttpClient client = new ();
+    private static readonly HttpClient Client = new ();
     private static string ApiPrefix => "https://api.namecheap.com/xml.response";
 
     private static async Task Main(string[] args)
@@ -39,10 +39,10 @@ internal class Program
 
         var apiSettings = new NameCheapApiSettings
         {
-            ApiKey = config.GetValue<string>("NameCheap:ApiKey"),
-            ApiUserName = config.GetValue<string>("NameCheap:ApiUserName"),
-            UserName = config.GetValue<string>("NameCheap:UserName"),
-            ClientIp = config.GetValue<string>("NameCheap:ClientIp"),
+            ApiKey = config.GetValue<string>("NameCheap:ApiKey") ?? string.Empty,
+            ApiUserName = config.GetValue<string>("NameCheap:ApiUserName") ?? string.Empty,
+            UserName = config.GetValue<string>("NameCheap:UserName") ?? string.Empty,
+            ClientIp = config.GetValue<string>("NameCheap:ClientIp") ?? string.Empty,
             HostName = args[1].ToLower()
         };
 
@@ -53,10 +53,10 @@ internal class Program
             Environment.Exit(1);
         }
         
-        client.Timeout = TimeSpan.FromSeconds(15);
-        client.DefaultRequestHeaders.Accept.Clear();
-        client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("text/xml"));
-        client.DefaultRequestHeaders.Add($"User-Agent", $"Argentini.NameCheap/{typeof(Program).Assembly.GetName().Version?.ToString() ?? "0.0.0"}");
+        Client.Timeout = TimeSpan.FromSeconds(15);
+        Client.DefaultRequestHeaders.Accept.Clear();
+        Client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("text/xml"));
+        Client.DefaultRequestHeaders.Add($"User-Agent", $"Argentini.NameCheap/{typeof(Program).Assembly.GetName().Version?.ToString() ?? "0.0.0"}");
 
         #endregion
         
@@ -114,7 +114,7 @@ internal class Program
             index++;
         }
 
-        var result = await client.GetStringAsync(cl.ToString());
+        var result = await Client.GetStringAsync(cl.ToString());
         var document = new XmlDocument();
 
         document.LoadXml(result);
@@ -179,7 +179,7 @@ internal class Program
     {
         var records = new List<Record>();
         var document = new XmlDocument();
-        var result = await client.GetStringAsync(
+        var result = await Client.GetStringAsync(
             $"{ApiPrefix}?Command=namecheap.domains.dns.getHosts&ApiUser={apiSettings.ApiUserName}&ApiKey={apiSettings.ApiKey}&UserName={apiSettings.UserName}&ClientIp={apiSettings.ClientIp}&SLD={apiSettings.Sld}&TLD={apiSettings.Tld}");
 
         document.LoadXml(result);

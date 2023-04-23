@@ -1,6 +1,6 @@
 # Argentini.NameCheap
 
-This .NET 6 project builds a command line interface (CLI) application that can add and remove text records using the NameCheap API.
+This .NET project builds a command line interface (CLI) application that can add and remove text records using the NameCheap API.
 
 It was originally built to allow for creating wildcard TLS certificates using *win-acme* (Let's Encrypt) on an IIS server. Creating wildcard certificates with *win-acme* requires DNS host validation. This application can be used with the *win-acme* script feature to allow it to communicate with the NameCheap API and create/delete TXT records that will validate domain ownership.
 
